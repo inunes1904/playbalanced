@@ -1,9 +1,9 @@
 package com.ivonunes.playbalanced.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Player {
@@ -14,6 +14,10 @@ public class Player {
   private String lastName;
 
   private int level;
+
+  @ManyToMany(mappedBy = "players")
+  private List<Team> teams = new ArrayList<>();
+
 
   public Player() {
   }
